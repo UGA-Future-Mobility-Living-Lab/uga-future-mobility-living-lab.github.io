@@ -1,0 +1,583 @@
+/*:root {
+  --primary-green: #34D399;
+  --primary-blue: #4BA3E3;
+  --dark-blue: #1E3A8A;
+  --road-gray: #94A3B8;
+  --bg-light: #F8FAFC;
+  --text-dark: #1E293B;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}*/
+
+/* Navbar Styles */
+/*.navbar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-logo img {
+  height: 40px;
+}
+
+.nav-logo span {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--dark-blue);
+}
+
+.mobile-menu-btn {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  list-style: none;
+}
+
+.nav-link {
+  color: var(--text-dark);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-link:hover, .nav-link.active {
+  background-color: var(--primary-green);
+  color: white;
+}*/
+
+/* Button Styles */
+/*.cta-button, .learn-more-btn {
+  background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.cta-button:hover, .learn-more-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}*/
+
+/* Hero Section */
+/*.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 6rem 2rem 2rem;
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-blue) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.road-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: var(--road-gray);
+  opacity: 0.3;
+}
+
+.road-line {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: white;
+  opacity: 0.5;
+  animation: roadLine 2s linear infinite;
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease 0.2s forwards;
+}*/
+
+/* Ecosystem Grid */
+/*.ecosystem-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.ecosystem-item {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: var(--transition);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+.ecosystem-item:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.ecosystem-item i {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: white;
+}*/
+
+/* Research Section */
+/*.research-section {
+  padding: 6rem 2rem;
+  background: white;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 4rem;
+  color: var(--dark-blue);
+}
+
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.research-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.research-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-icon {
+  background: var(--primary-green);
+  padding: 2rem;
+  text-align: center;
+  color: white;
+  font-size: 2.5rem;
+}
+
+.card-content {
+  padding: 2rem;
+}*/
+
+/* Animations */
+/*@keyframes fadeInUp {
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes roadLine {
+  to {
+      transform: translateX(20px);
+  }
+}*/
+
+/* Responsive Design */
+/*@media (max-width: 768px) {
+  .mobile-menu-btn {
+      display: block;
+  }
+
+  .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      flex-direction: column;
+      padding: 1rem;
+  }
+
+  .nav-links.active {
+      display: flex;
+  }
+
+  .ecosystem-grid {
+      grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-title {
+      font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ecosystem-grid {
+      grid-template-columns: 1fr;
+  }
+
+  .hero {
+      padding: 4rem 1rem 2rem;
+  }
+}*/
+
+:root {
+  --primary-red: #BA0C2F;        /* Bulldog Red */
+  --primary-black: #000000;      /* Arch Black */
+  --primary-gray: #B7B7B7;       /* UGA Gray */
+  --bg-light: #FFFFFF;           /* Chapel Bell White */
+  --text-dark: #000000;          /* Use black for text */
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Navbar Styles */
+.navbar {
+  background: rgba(255, 255, 255, 1);
+  backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-logo img {
+  height: 40px;
+}
+
+.nav-logo span {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary-black); /* Arch Black */
+}
+
+.mobile-menu-btn {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  list-style: none;
+}
+
+.nav-link {
+  color: var(--text-dark);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-link:hover, .nav-link.active {
+  background-color: var(--primary-red); /* UGA Red */
+  color: var(--bg-light); /* White text */
+}
+
+/* Button Styles */
+.cta-button, .learn-more-btn {
+  background: linear-gradient(135deg, var(--primary-red));
+  color: var(--bg-light); /* White text */
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.cta-button:hover, .learn-more-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 6rem 2rem 2rem;
+  background: linear-gradient(135deg, var(--primary-red) 50%, var(--primary-black) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.road-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: var(--primary-gray); /* UGA Gray */
+  opacity: 0.3;
+}
+
+.road-line {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--bg-light); /* White */
+  opacity: 0.5;
+  animation: roadLine 2s linear infinite;
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  color: var(--bg-light); /* White text */
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease 0.2s forwards;
+}
+
+/* Ecosystem Grid */
+.ecosystem-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.ecosystem-item {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: var(--transition);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+.ecosystem-item:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.ecosystem-item i {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  /*color: var(--primary-red);*/ /* UGA Red for icons */
+}
+
+/* Research Section */
+.research-section {
+  padding: 6rem 2rem;
+  background: var(--bg-light); /* White */
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 4rem;
+  color: var(--primary-black); /* UGA Red */
+}
+
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.research-card {
+  background: var(--bg-light); /* White */
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.research-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-icon {
+  background: var(--primary-red); /* UGA Red */
+  padding: 2rem;
+  text-align: center;
+  color: var(--bg-light); /* White */
+  font-size: 2.5rem;
+}
+
+.card-content {
+  padding: 2rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes roadLine {
+  to {
+      transform: translateX(20px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+      display: block;
+  }
+
+  .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--bg-light); /* White */
+      flex-direction: column;
+      padding: 1rem;
+  }
+
+  .nav-links.active {
+      display: flex;
+  }
+
+  .ecosystem-grid {
+      grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-title {
+      font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ecosystem-grid {
+      grid-template-columns: 1fr;
+  }
+
+  .hero {
+      padding: 4rem 1rem 2rem;
+  }
+}

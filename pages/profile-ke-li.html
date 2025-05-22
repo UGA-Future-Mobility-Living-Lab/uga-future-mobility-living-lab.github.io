@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Lab Researchers</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <style>
+    :root {
+  --primary-red: #BA0C2F;      /* Bulldog Red */
+  --primary-black: #000000;    /* Arch Black */
+  --uga-gray: #F8FAFC;         /* Light gray background */
+  --bg-light: #FFFFFF;         
+  --text-dark: #000000;        /* Black text */
+  --text-light: #64748B;       /* Neutral gray for secondary text */
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: var(--uga-gray);
+  color: var(--text-dark);
+  line-height: 1.6;
+  padding-top: 60px;
+}
+
+/* Navbar Styles */
+.navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 1);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+
+        .nav-container {
+            width: 100%;
+            padding: 1rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg-light);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            height: 35px;
+        }
+
+        .nav-logo span {
+            font-weight: 600;
+            color: var(--primary-black);
+            font-size: 1.1rem;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            z-index: 1100; 
+            position: relative;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+            margin-left: auto;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .nav-links li a i {
+            font-size: 1.1rem;
+        }
+
+        .nav-links li a:hover,
+        .nav-links li a.active {
+            background-color: var(--primary-red); /* UGA Red */
+            color: var(--bg-light); /* White text */
+        }
+
+        .join-btn {
+            background: var(--primary-red);
+            color: var(--bg-light) !important;
+            padding: 0.5rem 1.25rem;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .join-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+/* Researcher Profile Layout */
+.researcher-profile {
+  display: flex;
+  max-width: 1100px;
+  margin: 2.5rem auto;
+  background: #fff;
+  box-shadow: var(--shadow-lg);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.profile-info {
+  flex: 2;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fff;
+}
+
+.profile-info h2 {
+  margin-top: 0;
+  color: var(--primary-black);
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+
+.bio-publications {
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+  margin-top: 1.2rem;
+}
+
+.bio h3, .publications h3, .projects h3 {
+  margin-bottom: 0.5rem;
+  color: var(--primary-black);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.bio p {
+  color: var(--text-light);
+  font-size: 1.05rem;
+}
+
+.publications ul, .projects ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--text-dark);
+}
+
+.publications li, .projects li {
+  margin-bottom: 0.5rem;
+  font-size: 1.02rem;
+} 
+
+.profile-sidebar {
+  flex: 1;
+  background: #F1F5F9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem 1.5rem 2rem 1.5rem;
+  min-width: 270px;
+  border-left: 1px solid #e0e4ef;
+}
+
+.profile-photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  /*border: 4px solid var(--primary-black);*/
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(186, 12, 47, 0.10);
+  background: #fff;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.profile-details h4 {
+  margin: 0.5rem 0 0.25rem 0;
+  color: var(--primary-black);
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.profile-email, .profile-lab-link {
+  color: var(--primary-red);
+  text-decoration: none;
+  font-size: 1rem;
+  word-break: break-all;
+  transition: var(--transition);
+  display: block;
+  text-align: center;
+}
+
+.profile-email:hover, .profile-lab-link:hover {
+  text-decoration: underline;
+  color: var(--primary-black);
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .researcher-profile {
+    flex-direction: column-reverse;
+    max-width: 98vw;
+  }
+  .profile-sidebar {
+    border-left: none;
+    border-top: 1px solid #e0e4ef;
+    width: 100%;
+    min-width: 0;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 2rem;
+    padding: 2rem 1rem;
+  }
+  .profile-details {
+    align-items: flex-start;
+  }
+  .nav-links.active{
+    display: flex;
+  }
+
+  .nav-container{
+    padding: 1rem 0;
+  }
+    
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    /*padding: 1rem;*/
+  }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    background: var(--bg-light);
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 1.2rem 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+  }
+}
+
+@media (max-width: 600px) {
+  .researcher-profile {
+    padding: 0;
+  }
+  .profile-info, .profile-sidebar {
+    padding: 1.2rem;
+  }
+  .profile-photo {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+        <a href="../index.html" class="nav-logo">
+            <img src="../assets/FMLL_logo.png" alt="Future Mobility Living Lab">
+            <span>Future Mobility Living Lab</span>
+        </a>
+
+        <button class="mobile-menu-btn" aria-label="Toggle Menu">
+            <i class="bx bx-menu"></i>
+        </button>
+
+        <ul class="nav-links">
+            <li><a href="../index.html"><i class='bx bx-home'></i>Home</a></li>
+            <li><a href="research.html"><i class='bx bx-search'></i>Research</a></li>
+            <li><a href="team.html"><i class='bx bx-group'></i>Team</a></li>
+            <li><a href="publications.html"><i class='bx bx-book'></i>Publications</a></li>
+            <li><a href="contact.html" class="join-btn"><i class='bx bx-envelope'></i>Join Us</a></li>
+        </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="researcher-profile">
+    <div class="profile-info">
+      <h2>Dr. Ke Li</h2>
+      <div class="bio-publications">
+        <section class="bio">
+          <h3>Bio</h3>
+          <p>
+            Ke “Luke” Li obtained his Ph.D. from the Michigan Technological University as an environmental engineer. Li’s research is focused on urban sustainability with the emphasis on the water sustainability, infrastructure ecology, life cycle assessment of sustainable solutions. The long-term goal of Li’s research is to bridging between the self-emerging complex engineered systems with the rigid reductionism engineering methodology.
+          </p>
+        </section>
+        <section class="projects">
+            <h3>Projects</h3>
+            <ul>
+              <li>NSF EFRI 0836046 SINEWS: We aim to develop a comprehensive understanding of the sustainability and resilience of the water and energy systems, and to offer solutions that span infrastructure design, management of the physical environment, and socio-economic policy.</li>
+              <li>Private funded Digital Phoenix: Simulating human decision making on urban form change and analyze the traffic and material flow to project urban air quality.</li>
+              <li>EPA-G2020-ORD-B National Priorities: Research on PFAS Impacts in Rural Communities and Agricultural Operations. The relative part of this project is the life cycle analysis of technical systems.</li>
+            </ul>
+          </section>
+        <section class="publications">
+          <h3>Publications</h3>
+          <ul>
+            <li>Dunlap, J., Schramski, J., Li, G., Li, K., (2024)  Identifying uncertainty in the global warming impacts of biomaterials: An analysis of bio-succinic acid, International Journal of Life Cycle Analysis, Volume 29, pages 1137–1149.</li>
+            <li>Jackson, C. R. ; Wenger, S. J. ; Bledsoe, B. P. ; Shepherd, J. M.; Capps, K. A. ; Rosemond, A. D. ; Paul, M. J. ; Welch-Devine, M. ; Li, K. ; Stephens, T. ; Rasmussen, T. C. (2023). Water supply, waste assimilation, and low‐flow issues facing the Southeast Piedmont Interstate‐85 urban archipelago. JAWRA Journal of the American Water Resources Association, 59(5), 1146-1161. doi:10.1111/1752-1688.13130.</li>
+            <li>Zeng, F., Li, X., & Li, K. (2017). Modeling complexity in engineered infrastructure system: Water distribution network as an example. CHAOS, 27(2), 9 pages. doi:10.1063/1.4975762.</li>
+            <li>N. Hester, K. Li, J.R. Schramski, J. Crittenden,  Dynamic modeling of potentially conflicting energy reduction strategies for residential structures in semiarid climate, Journal of Environmental Management, 97, pp.148-153, 2012.</li>
+            <li>K. Li, P. Zhang, J. Crittenden, S. Guhathakurta, Y. Chen, H. Fernando, A. Sawhney, P. McCartney, N. Grimm, H. Joshi, G. Konjevod, Y. Choi, E. Fonseca, B. Allenby, D. Gerrity, R. Kahhat, P. Torrens, "Development of a Framework for Quantifying the Environmental Impacts of Urban Development and Construction Practices," Environmental Science and Technology, 2007, 41,pp. 5130-5136.</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+    <aside class="profile-sidebar">
+      <img src="../assets/DrKeLi.png" alt="Dr. Ke Li" class="profile-photo">
+      <div class="profile-details">
+        <h4>Dr. Ke Li</h4>
+        <a href="mailto:lukeli@uga.edu" class="profile-email">lukeli@uga.edu</a>
+        <!--<a href="https://hero.uga.edu" class="profile-lab-link" target="_blank">https://hero.uga.edu</a>-->
+      </div>
+    </aside>
+  </main>
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    if (menuBtn && navLinks) {
+      menuBtn.addEventListener('click', function () {
+        navLinks.classList.toggle('active');
+      });
+    }
+});
+</script>
+</body>
+</html>

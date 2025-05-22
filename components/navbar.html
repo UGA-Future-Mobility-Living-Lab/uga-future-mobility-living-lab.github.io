@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Mobility Living Lab - UGA</title>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        /* Core Variables */
+        :root {
+            --primary-green: #34D399;
+            --primary-blue: #4BA3E3;
+            --dark-blue: #1E3A8A;
+            --light-gray: #F8FAFC;
+            --text-dark: #1E293B;
+            --text-light: #64748B;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Modernized Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Logo Section */
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            padding: 0.5rem 0;
+        }
+
+        .nav-logo img {
+            height: 35px;
+            width: auto;
+        }
+
+        .nav-logo span {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--dark-blue);
+            letter-spacing: -0.5px;
+        }
+
+        /* Navigation Links */
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links li a i {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        /* Hover Effect */
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary-green);
+            transition: var(--transition);
+            transform: translateX(-50%);
+        }
+
+        .nav-links li a:hover::after,
+        .nav-links li a.active::after {
+            width: calc(100% - 2rem);
+        }
+
+        .nav-links li a:hover {
+            color: var(--primary-green);
+        }
+
+        /* Join Button */
+        .join-btn {
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-blue));
+            color: white !important;
+            padding: 0.5rem 1.25rem !important;
+            border-radius: 25px;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(52, 211, 153, 0.2);
+        }
+
+        .join-btn::after {
+            display: none;
+        }
+
+        .join-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(52, 211, 153, 0.3);
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-dark);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Mobile Menu Animation */
+        .mobile-menu-btn i {
+            transition: var(--transition);
+        }
+
+        .mobile-menu-btn.active i {
+            transform: rotate(90deg);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 1rem;
+                flex-direction: column;
+                box-shadow: var(--shadow);
+                gap: 0.5rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li a {
+                padding: 0.75rem 1rem;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .nav-links li a::after {
+                display: none;
+            }
+
+            .nav-links li a:hover {
+                background: var(--light-gray);
+            }
+
+            .join-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 1rem;
+            }
+
+            .nav-logo span {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/logo.svg" alt="Future Mobility Lab">
+                <span>Future Mobility Lab</span>
+            </a>
+
+            <button class="mobile-menu-btn">
+                <i class='bx bx-menu'></i>
+            </button>
+
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-item"><i class='bx bx-home-alt-2'></i>Home</a></li>
+                <li><a href="research.html" class="nav-item"><i class='bx bx-analyze'></i>Research</a></li>
+                <li><a href="team.html" class="nav-item"><i class='bx bx-group'></i>Team</a></li>
+                <li><a href="publications.html" class="nav-item"><i class='bx bx-book-open'></i>Publications</a></li>
+                <li><a href="contact.html" class="join-btn"><i class='bx bx-envelope'></i>Join Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+
+            // Toggle mobile menu
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                mobileMenuBtn.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.classList.remove('active');
+                }
+            });
+
+            // Set active nav item
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.nav-item').forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

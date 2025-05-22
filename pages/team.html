@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team - Future Mobility Living Lab</title>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        :root {
+            --primary-red: #BA0C2F;        /* Bulldog Red */
+            --primary-black: #000000;      /* Arch Black */
+            --uga-gray: #B7B7B7;           /* UGA Gray for subtle accents */
+            --bg-light: #FFFFFF;           /* Chapel Bell White */
+            --text-dark: #000000;          /* Black text */
+            --text-light: #6B7280;         /* Neutral gray for secondary text */
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 1);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+
+        .nav-container {
+            width: 100%;
+            padding: 1rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg-light);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            height: 35px;
+        }
+
+        .nav-logo span {
+            font-weight: 600;
+            color: var(--primary-black);
+            font-size: 1.1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+            margin-left: auto;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .nav-links li a i {
+            font-size: 1.1rem;
+        }
+
+        .nav-links li a:hover,
+        .nav-links li a.active {
+            background-color: var(--primary-red); /* UGA Red */
+            color: var(--bg-light); /* White text */
+        }
+
+        .join-btn {
+            background: var(--primary-red);
+            color: var(--bg-light) !important;
+            padding: 0.5rem 1.25rem;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .join-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-red) 50%, var(--primary-black) 100%);
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+            color: var(--bg-light);
+            position: relative;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .page-header p {
+            font-size: 1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Team Filter */
+        .team-filter {
+            position: sticky;
+            top: 70px;
+            background: var(--bg-light);
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+            z-index: 90;
+            width: 100%;
+        }
+
+        .filter-container {
+            width: 100%;
+            padding: 0 4rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .filter-btn {
+            padding: 0.4rem 1.2rem;
+            border: 1.5px solid var(--primary-red);
+            background: none;
+            color: var(--primary-red);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.85rem;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary-red);
+            color: var(--bg-light);
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 2rem 4rem;
+            width: 100%;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1.25rem;
+            width: 100%;
+        }
+
+        .team-card {
+            background: var(--bg-light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .member-image {
+            position: relative;
+            padding-top: 100%;
+            background: linear-gradient(135deg, var(--primary-red), var(--primary-black));
+            overflow: hidden;
+        }
+
+        .member-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-info {
+            padding: 0.75rem;
+            text-align: center;
+        }
+
+        .member-name {
+            font-size: 0.9rem;
+            color: var(--primary-black);
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+
+        .member-role {
+            color: var(--primary-red);
+            font-size: 0.75rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .member-specialty {
+            color: var(--text-light);
+            font-size: 0.75rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .research-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.25rem;
+            justify-content: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .research-tag {
+            background: rgba(186, 12, 47, 0.1);
+            color: var(--primary-red);
+            padding: 0.15rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.65rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .social-link {
+            width: 28px;
+            height: 28px;
+            background: var(--uga-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-black);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .social-link:hover {
+            background: var(--primary-red);
+            color: var(--bg-light);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .team-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container,
+            .filter-container,
+            .team-section {
+                padding: 1rem 2rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg-light);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 0.5rem;
+                box-shadow: var(--shadow);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li a {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .nav-container,
+            .filter-container,
+            .team-section {
+                padding: 1rem;
+            }
+            
+            .team-grid {
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+                gap: 0.75rem;
+            }
+            
+            .member-info {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <img src="../assets/FMLL_logo.png" alt="Future Mobility Living Lab">
+                <span>Future Mobility Living Lab</span>
+            </a>
+
+            <button class="mobile-menu-btn">
+                <i class='bx bx-menu'></i>
+            </button>
+
+            <ul class="nav-links">
+                <li><a href="../index.html"><i class='bx bx-home'></i>Home</a></li>
+                <li><a href="research.html"><i class='bx bx-search'></i>Research</a></li>
+                <li><a href="team.html" class="active"><i class='bx bx-group'></i>Team</a></li>
+                <li><a href="publications.html"><i class='bx bx-book'></i>Publications</a></li>
+                <li><a href="contact.html" class="join-btn"><i class='bx bx-envelope'></i>Join Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <h1>Our Team</h1>
+        <p>Meet the innovators shaping the future of sustainable mobility</p>
+    </section>
+
+    <section class="team-filter">
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="faculty">Faculty</button>
+            <button class="filter-btn" data-filter="researchers">Researchers</button>
+            <!--<button class="filter-btn" data-filter="students">Students</button>-->
+        </div>
+    </section>
+
+    <section class="team-section">
+        <div class="team-grid">
+            <!-- Faculty Example -->
+            <div class="team-card" data-category="faculty" onclick="window.location.href='profile-qianwen-li.html'">
+                <div class="member-image">
+                    <img src="../assets/DrQianwenLi.jpg" alt="Dr. Qianwen Li">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Dr. Qianwen Li</h3>
+                    <!--<p class="member-role">Lab Director</p>-->
+                    <p class="member-specialty">Autonomous Systems</p>
+                    <!--<div class="research-tags">
+                        <span class="research-tag">AI</span>
+                        <span class="research-tag">Robotics</span>
+                    </div>-->
+                    <div class="social-links">
+                        <!--<a href="#" class="social-link"><i class='bx bxl-linkedin'></i></a>
+                        <a href="#" class="social-link"><i class='bx bxl-google'></i></a>
+                        <a href="#" class="social-link"><i class='bx bx-globe'></i></a>-->
+                        <a href="mailto:Cami.Li@uga.edu" class="social-link"><i class='bx bx-envelope'></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Researcher Example -->
+            <div class="team-card" data-category="researchers" onclick="window.location.href='../pages/profile-qin-lu.html'">
+                <div class="member-image">
+                    <img src="../assets/DrQinLu.png" alt="Dr. Qin Lu">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Dr. Qin Lu</h3>
+                    <!--<p class="member-role">Researcher</p>-->
+                    <p class="member-specialty">Autonomous Systems</p>
+                    <!--<div class="research-tags">
+                        <span class="research-tag">Signal Processing</span>
+                        <span class="research-tag">Machine Learning</span>
+                    </div>-->
+                    <div class="social-links">
+                        <!--<a href="#" class="social-link"><i class='bx bxl-linkedin'></i></a>-->
+                        <a href="mailto:Qin.Lu@uga.edu" class="social-link"><i class='bx bx-envelope'></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card" data-category="researchers" onclick="window.location.href='../pages/profile-ramviyas.html'">
+                <div class="member-image">
+                    <img src="../assets/DrRamviyas.jpg" alt="Dr. Ramviyas Nattanmai Parasuraman">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Dr. Ramviyas Nattanmai Parasuraman</h3>
+                    <!--<p class="member-role">Researcher</p>-->
+                    <p class="member-specialty">Robotics</p>
+                    <!--<div class="research-tags">
+                        <span class="research-tag">Multi-robot systems</span>
+                        <span class="research-tag">AI</span>
+                    </div>-->
+                    <div class="social-links">
+                        <!--<a href="#" class="social-link"><i class='bx bxl-linkedin'></i></a>-->
+                        <a href="mailto:ramviyas@uga.edu" class="social-link"><i class='bx bx-envelope'></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card" data-category="researchers" onclick="window.location.href='../pages/profile-yunli-shao.html'">
+                <div class="member-image">
+                    <img src="../assets/placeholder.jpg" alt="Dr. Yunli Shao">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Dr. Yunli Shao</h3>
+                    <!--<p class="member-role">Researcher</p>-->
+                    <p class="member-specialty">Automotive and Transportation Systems</p>
+                    <!--<div class="research-tags">
+                        <span class="research-tag">AI</span>
+                        <span class="research-tag">E-mobility</span>
+                    </div>-->
+                    <div class="social-links">
+                        <!--<a href="#" class="social-link"><i class='bx bxl-linkedin'></i></a>-->
+                        <a href="mailto:Yunli.Shao@uga.edu" class="social-link"><i class='bx bx-envelope'></i></a>
+                        <!--<a href="https://yunlishao.github.io/" class="social-link"><i class='bx bxl-github'></i></a>-->
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card" data-category="researchers" onclick="window.location.href='../pages/profile-tianqi-hong.html'">
+                <div class="member-image">
+                    <img src="../assets/DrTianqiHong.jpg" alt="Dr. Tianqi Hong">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Dr. Tianqi Hong</h3>
+                    <!--<p class="member-role">Researcher</p>-->
+                    <p class="member-specialty">Power System Modeling</p>
+                    <!--<div class="research-tags">
+                        <span class="research-tag">Transportation Electrification</span>
+                        <span class="research-tag">Microgrids</span>
+                    </div>-->
+                    <div class="social-links">
+                        <!--<a href="#" class="social-link"><i class='bx bxl-linkedin'></i></a>-->
+                        <a href="mailto:Tianqi.Hong@uga.edu" class="social-link"><i class='bx bx-envelope'></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card" data-category="researchers" onclick="window.location.href='../pages/profile-jin-sun.html'">
+                <div class="member-image">
+                    <img src="../assets/DrJinSun.jpg" alt="Dr. Jin Sun">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Dr. Jin Sun</h3>
+                    <!--<p class="member-role">Researcher</p>-->
+                    <p class="member-specialty">Computer Vision</p>
+                    <!--<div class="research-tags">
+                        <span class="research-tag">AI</span>
+                    </div>-->
+                    <div class="social-links">
+                        <!--<a href="#" class="social-link"><i class='bx bxl-linkedin'></i></a>-->
+                        <a href="mailto:jinsun@uga.edu" class="social-link"><i class='bx bx-envelope'></i></a>
+                        <!--<a href="#" class="social-link"><i class='bx bxl-github'></i></a>-->
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card" data-category="researchers" onclick="window.location.href='../pages/profile-ke-li.html'">
+                <div class="member-image">
+                    <img src="../assets/DrKeLi.png" alt="Dr. Ke Li">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Dr. Ke Li</h3>
+                    <!--<p class="member-role">Researcher</p>-->
+                    <p class="member-specialty">Urban Sustainability</p>
+                    <!--<div class="research-tags">
+                        <span class="research-tag">Infrastructure ecology</span>
+                        <span class="research-tag">Life cycle assessment </span>
+                    </div>-->
+                    <div class="social-links">
+                        <!--<a href="#" class="social-link"><i class='bx bxl-linkedin'></i></a>-->
+                        <a href="mailto:lukeli@uga.edu" class="social-link"><i class='bx bx-envelope'></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card" data-category="researchers" onclick="window.location.href='../pages/profile-haijian-sun.html'">
+                <div class="member-image">
+                    <img src="../assets/DrHaijianSun.jpg" alt="Dr. Haijian Sun">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Dr. Haijian Sun</h3>
+                    <!--<p class="member-role">Researcher</p>-->
+                    <p class="member-specialty">Wireless Communication</p>
+                    <!--<div class="research-tags">
+                        <span class="research-tag">Machine Learning</span>
+                        <span class="research-tag">IoT</span>
+                        <span class="research-tag">Cyber Security</span>
+                    </div>-->
+                    <div class="social-links">
+                        <!--<a href="#" class="social-link"><i class='bx bxl-linkedin'></i></a>-->
+                        <a href="mailto:hsun@uga.edu" class="social-link"><i class='bx bx-envelope'></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card" data-category="researchers" onclick="window.location.href='../pages/profile-xiaobai-angela-yao.html'">
+                <div class="member-image">
+                    <img src="../assets/DrXiaobaiAngelaYao.jpg" alt="Dr. Xiaobai Angela Yao">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Dr. Xiaobai Angela Yao</h3>
+                    <!--<p class="member-role">Researcher</p>-->
+                    <p class="member-specialty">Urban Transportation</p>
+                    <!--<div class="research-tags">
+                        <span class="research-tag">Human mobility</span>
+                        <span class="research-tag">Transportation modeling</span>
+                    </div>-->
+                    <div class="social-links">
+                        <!--<a href="#" class="social-link"><i class='bx bxl-linkedin'></i></a>-->
+                        <a href="mailto:xyao@uga.edu" class="social-link"><i class='bx bx-envelope'></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card" data-category="researchers" onclick="window.location.href='../pages/profile-handong-yao.html'">
+                <div class="member-image">
+                    <img src="../assets/DrHandongYao.jpg" alt="Dr. Handong Yao">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Dr. Handong Yao</h3>
+                    <!--<p class="member-role">Researcher</p>-->
+                    <p class="member-specialty">Cyber-physical Transportation Systems</p>
+                    <!--<div class="research-tags">
+                        <span class="research-tag">Machine learning</span>
+                    </div>-->
+                    <div class="social-links">
+                        <!--<a href="#" class="social-link"><i class='bx bxl-linkedin'></i></a>-->
+                        <a href="mailto:Handong.Yao@uga.edu" class="social-link"><i class='bx bx-envelope'></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Student Example -->
+            <!--<div class="team-card" data-category="students">
+                <div class="member-image">
+                    <img src="assets/placeholder.jpg" alt="John Doe">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">John Doe</h3>
+                    <p class="member-role">Ph.D. Student</p>
+                    <p class="member-specialty">Smart Cities</p>
+                    <div class="research-tags">
+                        <span class="research-tag">IoT</span>
+                        <span class="research-tag">Data</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class='bx bxl-github'></i></a>
+                        <a href="#" class="social-link"><i class='bx bx-envelope'></i></a>
+                    </div>
+                </div>
+            </div>-->
+
+            <!-- Add more team cards as needed -->
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                }
+            });
+
+            // Filter functionality
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const teamCards = document.querySelectorAll('.team-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+
+                    const filterValue = btn.getAttribute('data-filter');
+                    
+                    teamCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Card hover effects
+            teamCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-5px)';
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
