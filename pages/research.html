@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research - Future Mobility Living Lab</title>
     <link href='https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
         :root {
@@ -46,7 +47,7 @@
 
         .nav-container {
             width: 100%;
-            padding: 1rem 4rem;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -79,7 +80,7 @@
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 2rem;
+            gap: 1.3rem;
             list-style: none;
             margin-left: auto;
         }
@@ -140,6 +141,124 @@
             max-width: 600px;
             margin: 0 auto;
         }
+
+        /* Research Areas Section*/
+        /*.research-areas {
+            padding: 3rem 0 2rem 0;
+            background: #f7f7f7;
+        }
+        
+        .research-areas .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            align-items: stretch;
+        }
+
+        .research-area {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 2rem 1.5rem 1.5rem 1.5rem;
+            text-align: center;
+            transition: box-shadow 0.3s, transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 320px;
+            height: 100%;         
+            box-sizing: border-box;
+        }
+        
+        .research-area:hover {
+            box-shadow: 0 8px 24px rgba(186,12,47,0.12);
+            transform: translateY(-3px) scale(1.03);
+        }
+        
+        .area-icon {
+            font-size: 2.7rem;
+            color: #BA0C2F; 
+            margin-bottom: 1rem;
+        }
+        
+        .research-area h3 {
+            font-size: 1.18rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #222;
+        }
+        
+        .research-area p {
+            font-size: 0.98rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }*/
+
+        .research-rectangles {
+            max-width: 900px;
+            margin: 3rem auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding: 0 1rem;
+        }
+        
+        .research-card {
+            display: flex;
+            align-items: flex-start;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 1.2rem 1.5rem;
+            transition: box-shadow 0.3s, transform 0.3s;
+            gap: 1.2rem;
+        }
+        
+        .research-card:hover {
+            box-shadow: 0 8px 24px rgba(186,12,47,0.12);
+            transform: translateY(-3px) scale(1.02);
+        }
+        
+        .icon-box {
+            min-width: 56px;
+            min-height: 56px;
+            max-width: 56px;
+            max-height: 56px;
+            background: #f6e7ea;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 0.1rem;
+        }
+        
+        .icon-box i {
+            font-size: 2rem;
+            color: #BA0C2F;
+        }
+
+        .card-content h3 {
+            font-size: 1.12rem;
+            font-weight: 700;
+            margin: 0 0 0.4rem 0;
+            color: #222;
+        }
+
+        .card-content p {
+            margin: 0;
+            color: #444;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
 
         /* Publications Filter */
         .publications-filter {
@@ -384,7 +503,28 @@
             .publication-card:hover {
                 transform: none;
             }
+
+            .research-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+  
+            .research-areas .container {
+                padding: 0 1rem;
+            }
+
+            .research-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.7rem;
+                padding: 1rem;
+            }
+  
+            .icon-box {
+                margin-bottom: 0.4rem;
+            }
         }
+
         
         @media (max-width: 480px) {
             .nav-container, 
@@ -425,10 +565,11 @@
 
             <ul class="nav-links">
                 <li><a href="../index.html"><i class='bx bx-home'></i>Home</a></li>
-                <li><a href="research.html"><i class='bx bx-search'></i>Research</a></li>
+                <li><a href="research.html" class="active"><i class='bx bx-search'></i>Research</a></li>
+                <li><a href="advisory-board.html"><i class='bx bx-user-voice'></i>Advisory Board</a></li>
                 <li><a href="team.html"><i class='bx bx-group'></i>Team</a></li>
-                <li><a href="publications.html"><i class='bx bx-book'></i>Publications</a></li>
-                <li><a href="contact.html" class="join-btn"><i class='bx bx-envelope'></i>Join Us</a></li>
+                <li><a href="news.html"><i class='bx bx-news'></i>News</a></li>
+                <li><a href="contact.html" class="join-btn"><i class='bx bx-envelope'></i>Contact Us</a></li>
             </ul>
         </div>
     </nav>
@@ -440,60 +581,179 @@
     </section>
 
     <!-- Research Areas -->
-    <section class="research-areas">
+    <!--<section class="research-areas">
         <div class="container">
             <div class="research-grid">
                 <div class="research-area">
                     <div class="area-icon">
-                        <i class='bx bx-car'></i>
+                        <i class='bx bx-broadcast'></i>
                     </div>
-                    <h3>Electric Mobility</h3>
-                    <p>Advancing electric vehicle technology and charging infrastructure</p>
-                    <ul>
-                        <li>Battery Technology</li>
-                        <li>Charging Networks</li>
-                        <li>Grid Integration</li>
-                    </ul>
+                    <h3>Communication Technologies</h3>
+                    <p>Enabling seamless data exchange for mobility systems.</p>
                 </div>
 
                 <div class="research-area">
                     <div class="area-icon">
-                        <i class='bx bx-network-chart'></i>
+                        <i class='bx bx-radar'></i>
                     </div>
-                    <h3>Connected Systems</h3>
-                    <p>Developing intelligent transportation networks</p>
-                    <ul>
-                        <li>V2X Communication</li>
-                        <li>Smart Traffic Management</li>
-                        <li>Data Analytics</li>
-                    </ul>
+                    <h3>Sensing Technologies</h3>
+                    <p>Advanced sensors for real-time information and safety.</p>
+                </div>
+
+                <div class="research-area">
+                    <div class="area-icon">
+                        <i class='bx bx-car'></i>
+                    </div>
+                    <h3>E-Mobility</h3>
+                    <p>Innovations in electric vehicles and charging infrastructure.</p>
+                </div>
+
+                <div class="research-area">
+                    <div class="area-icon">
+                        <i class='bx bx-shield'></i>
+                    </div>
+                    <h3>Resilient Infrastructure</h3>
+                    <p>Designing robust systems for future mobility needs.</p>
+                </div>
+
+                <div class="research-area">
+                    <div class="area-icon">
+                        <i class='bx bx-shield-alt'></i>
+                    </div>
+                    <h3>Transportation Safety</h3>
+                    <p>Improving safety for all road users.</p>
+                </div>
+
+                <div class="research-area">
+                    <div class="area-icon">
+                        <i class='bx bx-chip'></i>
+                    </div>
+                    <h3>Automated Vehicles</h3>
+                    <p>Research on self-driving and intelligent vehicles.</p>
+                </div>
+
+                <div class="research-area">
+                    <div class="area-icon">
+                        <i class='bx bx-package'></i>
+                    </div>
+                    <h3>Logistics</h3>
+                    <p>Optimizing the movement of goods and services.</p>
+                </div>
+
+                <div class="research-area">
+                    <div class="area-icon">
+                        <i class='bx bx-leaf'></i>
+                    </div>
+                    <h3>Climate Change</h3>
+                    <p>Addressing mobility’s impact on the environment.</p>
                 </div>
 
                 <div class="research-area">
                     <div class="area-icon">
                         <i class='bx bx-building-house'></i>
                     </div>
-                    <h3>Smart Infrastructure</h3>
-                    <p>Building the foundation for future mobility</p>
-                    <ul>
-                        <li>Urban Planning</li>
-                        <li>Sensor Networks</li>
-                        <li>Energy Systems</li>
-                    </ul>
+                    <h3>Urban Design</h3>
+                    <p>Integrating mobility into smart city planning.</p>
                 </div>
+            </div>
+        </div>
+    </section>-->
+
+
+    <section class="research-rectangles">
+        <div class="research-card">
+            <div class="icon-box">
+                <i class='bx bx-broadcast'></i>
+            </div>
+            <div class="card-content">
+                <h3>Communication Technologies</h3>
+                <p>Enabling seamless data exchange for mobility systems.</p>
+            </div>
+        </div>
+        <div class="research-card">
+            <div class="icon-box">
+                <i class='bx bx-radar'></i>
+            </div>
+            <div class="card-content">
+                <h3>Sensing Technologies</h3>
+                <p>Advanced sensors for real-time information and safety.</p>
+            </div>
+        </div>
+        <div class="research-card">
+            <div class="icon-box">
+                <i class='bx bx-car'></i>
+            </div>
+            <div class="card-content">
+                <h3>E-Mobility</h3>
+                <p>Innovations in electric vehicles and charging infrastructure.</p>
+            </div>
+        </div>
+        <div class="research-card">
+            <div class="icon-box">
+                <i class='bx bx-shield'></i>
+            </div>
+            <div class="card-content">
+                <h3>Resilient Infrastructure</h3>
+                <p>Designing robust systems for future mobility needs.</p>
+            </div>
+        </div>
+        <div class="research-card">
+            <div class="icon-box">
+                <i class='bx bx-shield-alt'></i>
+            </div>
+            <div class="card-content">
+                <h3>Transportation Safety</h3>
+                <p>Improving safety for all road users.</p>
+            </div>
+        </div>
+        <div class="research-card">
+            <div class="icon-box">
+                <i class='bx bx-chip'></i>
+            </div>
+            <div class="card-content">
+                <h3>Automated Vehicles</h3>
+                <p>Research on self-driving and intelligent vehicles.</p>
+            </div>
+        </div>
+        <div class="research-card">
+            <div class="icon-box">
+                <i class='bx bx-package'></i>
+            </div>
+            <div class="card-content">
+                <h3>Logistics</h3>
+                <p>Optimizing the movement of goods and services.</p>
+            </div>
+        </div>
+        <div class="research-card">
+            <div class="icon-box">
+                <i class='bx bx-leaf'></i>
+            </div>
+            <div class="card-content">
+                <h3>Climate Change</h3>
+                <p>Addressing mobility’s impact on the environment.</p>
+            </div>
+        </div>
+        <div class="research-card">
+            <div class="icon-box">
+                <i class='bx bx-building-house'></i>
+            </div>
+            <div class="card-content">
+                <h3>Urban Design</h3>
+                <p>Integrating mobility into smart city planning.</p>
             </div>
         </div>
     </section>
 
+
     <!-- Current Projects -->
-    <section class="current-projects">
+    <!--<section class="current-projects">
         <div class="container">
             <h2>Current Projects</h2>
-            <div class="project-grid">
+            <div class="project-grid">-->
                 <!-- Project cards will be populated dynamically -->
-            </div>
+            <!--</div>
         </div>
-    </section>
+    </section>-->
 
     <script>
   document.addEventListener('DOMContentLoaded', function () {
