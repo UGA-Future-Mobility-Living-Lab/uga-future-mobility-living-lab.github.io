@@ -46,7 +46,7 @@ body {
 
         .nav-container {
             width: 100%;
-            padding: 1rem 4rem;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -84,7 +84,7 @@ body {
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 2rem;
+            gap: 1.3rem;
             list-style: none;
             margin-left: auto;
         }
@@ -275,10 +275,8 @@ body {
         background: #eee;
         box-shadow: var(--shadow);
       }
-      
-      /* Responsive */
 
-      @media (max-width: 900px) {
+      @media (max-width: 768px) {
         .mobile-menu-btn {
         display: block;
       }
@@ -286,12 +284,6 @@ body {
         .contact-grid {
           flex-direction: row;
           gap: 2rem;
-        }
-      }
-      
-      @media (max-width: 600px) {
-        .nav-container{
-          padding: 1rem 0;
         }
 
         .nav-links {
@@ -302,26 +294,39 @@ body {
         left: 0;
         background: var(--bg-light);
         flex-direction: column;
-        gap: 1.2rem;
-        padding: 1.2rem 0;
+        gap: 0.5rem;
+        padding: 1rem 0;
         z-index: 1000;
         box-shadow: var(--shadow);
       }
-        
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .page-header {
+          padding: 6rem 2rem 4rem;
+      }
+        .page-header h1 {
+          font-size: 2rem;
+      }
+    }
+      
+      @media (max-width: 480px) {
+        .nav-container{
+          padding: 1rem 0;
+        }
+
         .container {
           padding: 0 0.5rem;
         }
+
         .contact-form, .contact-info {
           padding: 1rem;
           min-width: unset;
         }
-        .page-header {
-          padding: 6rem 2rem 4rem;
-        }
-        .page-header h1 {
-          font-size: 2rem;
-        }
       }
+        
       </style>
 </head>
 <body>
@@ -339,10 +344,11 @@ body {
 
             <ul class="nav-links">
                 <li><a href="../index.html"><i class='bx bx-home'></i>Home</a></li>
-                <li><a href="research.html"><i class='bx bx-search'></i>Research</a></li>
+                <!--<li><a href="research.html"><i class='bx bx-search'></i>Research</a></li>-->
+                <li><a href="advisory-board.html"><i class='bx bx-user-voice'></i>Advisory Board</a></li>
                 <li><a href="team.html"><i class='bx bx-group'></i>Team</a></li>
-                <li><a href="publications.html"><i class='bx bx-book'></i>Publications</a></li>
-                <li><a href="contact.html" class="join-btn"><i class='bx bx-envelope'></i>Join Us</a></li>
+                <li><a href="news.html"><i class='bx bx-news'></i>News</a></li>
+                <li><a href="contact.html" class="join-btn"><i class='bx bx-envelope'></i>Contact Us</a></li>
             </ul>
         </div>
     </nav>
@@ -354,7 +360,7 @@ body {
     </section>
 
     <!-- Contact Information -->
-    <section class="contact-section">
+    <!--<section class="contact-section">
         <div class="container">
             <div class="contact-grid">
                 <div class="contact-form">
@@ -379,7 +385,7 @@ body {
                         <button type="submit" class="submit-btn">Send Message</button>
                     </form>
                 </div>
-                <!--<div class="contact-info">
+                <div class="contact-info">
                     <div class="info-card">
                         <i class='bx bx-map'></i>
                         <h3>Location</h3>
@@ -396,12 +402,24 @@ body {
                         <h3>Phone</h3>
                         <p>(555) 123-4567</p>
                     </div>
-                </div>-->
+                </div>
             </div>
         </div>
-    </section>
+    </section>-->
 
-    <script>
+    <!-- Contact Information -->
+<!-- Contact Section -->
+<section class="contact-section" style="text-align: center; padding: 4rem 1rem;">
+  <h2 style="color: var(--primary-black); margin-bottom: 1rem;">Interested in joining the lab or collaborating? We'd love to hear from you!</h2>
+  <p style="font-size: 1.1rem; color: var(--text-dark);">
+    Email us at
+    <a href="mailto:ugafmll@gmail.com" style="color: var(--primary-red); text-decoration: underline;">
+      ugafmll@gmail.com
+    </a>
+  </p>
+</section>
+
+<script>
   document.addEventListener('DOMContentLoaded', function () {
     const menuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
@@ -411,5 +429,6 @@ body {
       });
     }
 });
+</script>
 </body>
 </html>
