@@ -139,6 +139,10 @@
       padding: 0 1rem;
     }
 
+    .news-row.reverse {
+  flex-direction: row-reverse;
+}
+
     .news-images-custom {
       position: relative;
       width: 420px;
@@ -396,11 +400,41 @@
   </section>
 
   <!-- Desktop: Overlapping Images -->
+
   <div class="news-row">
     <div class="news-images-custom">
-      <img src="../assets/News_1.1.jpg" alt="Beep Visit 1" class="img1">
+      <img src="../assets/News_3.1.jpg" alt="Camp 1" class="img1" style="top: 52px;">
+      <img src="../assets/News_3.2.jpg" alt="Camp 2" class="img2" style="top: 183px;">
+    </div>
+    <div class="news-content">
+      <h2>Autonomous Vehicle Research Featured for High School Campers</h2>
+      <p class="news-date">June 19, 2025</p>
+      <p>
+        On June 19, 2025, the Future Mobility Living Lab hosted a special session showcasing its autonomous vehicle research to high school students participating in a summer camp. The event offered students a hands-on introduction to emerging technologies in transportation.
+      </p>
+    </div>
+  </div>
+  
+  <div class="news-row reverse">
+    <div class="news-images-custom">
+      <img src="../assets/News_2.1.jpg" alt="ICTD 1" class="img1">
+      <img src="../assets/News_2.3.jpg" alt="ICTD 2" class="img2">
+      <img src="../assets/News_2.2.jpg" alt="ICTD 3" class="img3">
+    </div>
+    <div class="news-content">
+      <h2>PhD Students Present Research at ASCE ICTD 2025</h2>
+      <p class="news-date">June 8-12, 2025</p>
+      <p>
+        From June 8–12, 2025, PhD students Wenjie Zhao, Zhipeng Bao, and Tianle Zhu presented three research papers at the International Conference on Transportation and Development (ASCE ICTD) held in Arizona. Their work highlights the cutting-edge research being conducted at the Future Mobility Living Lab.
+      </p>
+    </div>
+  </div>
+
+  <div style="margin-top: 6rem;" class="news-row">
+    <div class="news-images-custom">
+      <img src="../assets/News_1.1.jpg" alt="Beep Visit 1" class="img1" style="top: -15px;">
       <img src="../assets/News_1.2.jpg" alt="Beep Visit 2" class="img2">
-      <img src="../assets/News_1.3.jpg" alt="Beep Visit 3" class="img3">
+      <img src="../assets/News_1.3.jpg" alt="Beep Visit 3" class="img3" style="top: 255px;">
     </div>
     <div class="news-content">
       <h2>Future Mobility Living Lab Explores Autonomous Transit Innovation with Beep, Inc.</h2>
@@ -409,9 +443,55 @@
         From May 5–7, the Future Mobility Living Lab at the University of Georgia joined the Georgia Network for Electric Mobility on a site visit to Beep, Inc., a leading provider of autonomous mobility solutions. Beep, in collaboration with HOLON and Mobileye, is addressing the complex challenge of deploying autonomous last-mile services and transit connectors in real-world environments. Throughout the visit, participants observed active deployments, engaged in technical discussions, and explored potential areas for future collaboration.
       </p>
     </div>
-  </div>-->
+  </div>
 
   <!-- Mobile/Tablet: Carousel -->
+<div class="news-carousel-card">
+    <div class="carousel-container">
+      <button class="carousel-arrow left" aria-label="Previous image">&#8592;</button>
+      <div class="carousel-track">
+        <img src="../assets/News_3.1.jpg" alt="Camp 1" class="carousel-image active">
+        <img src="../assets/News_3.2.jpg" alt="Camp 2" class="carousel-image">
+      </div>
+      <button class="carousel-arrow right" aria-label="Next image">&#8594;</button>
+    </div>
+    <div class="carousel-thumbnails">
+      <img src="../assets/News_3.1.jpg" alt="Camp 1" class="thumbnail active">
+      <img src="../assets/News_3.2.jpg" alt="Camp 2" class="thumbnail">
+    </div>
+    <div class="news-content">
+      <h2>Autonomous Vehicle Research Featured for High School Campers</h2>
+      <p class="news-date">June 19, 2025</p>
+      <p>
+        On June 19, 2025, the Future Mobility Living Lab hosted a special session showcasing its autonomous vehicle research to high school students participating in a summer camp. The event offered students a hands-on introduction to emerging technologies in transportation.
+      </p>
+    </div>
+  </div>
+
+<div class="news-carousel-card">
+    <div class="carousel-container">
+      <button class="carousel-arrow left" aria-label="Previous image">&#8592;</button>
+      <div class="carousel-track">
+        <img src="../assets/News_2.1.jpg" alt="ICTD 1" class="carousel-image active">
+        <img src="../assets/News_2.3.jpg" alt="ICTD 2" class="carousel-image">
+        <img src="../assets/News_2.2.jpg" alt="ICTD 3" class="carousel-image">
+      </div>
+      <button class="carousel-arrow right" aria-label="Next image">&#8594;</button>
+    </div>
+    <div class="carousel-thumbnails">
+      <img src="../assets/News_2.1.jpg" alt="ICTD 1" class="thumbnail active">
+      <img src="../assets/News_2.3.jpg" alt="ICTD 2" class="thumbnail">
+      <img src="../assets/News_2.2.jpg" alt="ICTD 3" class="thumbnail">
+    </div>
+    <div class="news-content">
+      <h2>PhD Students Present Research at ASCE ICTD 2025</h2>
+      <p class="news-date">June 8-12, 2025</p>
+      <p>
+        From June 8–12, 2025, PhD students Wenjie Zhao, Zhipeng Bao, and Tianle Zhu presented three research papers at the International Conference on Transportation and Development (ASCE ICTD) held in Arizona. Their work highlights the cutting-edge research being conducted at the Future Mobility Living Lab.
+      </p>
+    </div>
+  </div>
+
   <div class="news-carousel-card">
     <div class="carousel-container">
       <button class="carousel-arrow left" aria-label="Previous image">&#8592;</button>
@@ -437,61 +517,64 @@
     </div>
   </div>
 
-  <script>
-    // Mobile menu toggle
-    document.addEventListener('DOMContentLoaded', function () {
-      const menuBtn = document.querySelector('.mobile-menu-btn');
-      const navLinks = document.querySelector('.nav-links');
-      if (menuBtn && navLinks) {
-        menuBtn.addEventListener('click', function () {
-          navLinks.classList.toggle('active');
-        });
-      }
-
-      // Carousel functionality for mobile/tablet
-      const images = document.querySelectorAll('.carousel-image');
-      const thumbnails = document.querySelectorAll('.thumbnail');
-      const leftArrow = document.querySelector('.carousel-arrow.left');
-      const rightArrow = document.querySelector('.carousel-arrow.right');
-      let current = 0;
-
-      function updateCarousel(index) {
-        images.forEach((img, i) => {
-          img.classList.toggle('active', i === index);
-        });
-        thumbnails.forEach((thumb, i) => {
-          thumb.classList.toggle('active', i === index);
-        });
-        if (leftArrow && rightArrow) {
-          leftArrow.disabled = index === 0;
-          rightArrow.disabled = index === images.length - 1;
-        }
-      }
-
-      if (leftArrow && rightArrow) {
-        leftArrow.addEventListener('click', () => {
-          if (current > 0) {
-            current--;
-            updateCarousel(current);
-          }
-        });
-        rightArrow.addEventListener('click', () => {
-          if (current < images.length - 1) {
-            current++;
-            updateCarousel(current);
-          }
-        });
-      }
-
-      thumbnails.forEach((thumb, i) => {
-        thumb.addEventListener('click', () => {
-          current = i;
-          updateCarousel(current);
-        });
-      });
-
-      updateCarousel(current);
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // Mobile menu toggle
+  const menuBtn = document.querySelector('.mobile-menu-btn');
+  const navLinks = document.querySelector('.nav-links');
+  if (menuBtn && navLinks) {
+    menuBtn.addEventListener('click', function () {
+      navLinks.classList.toggle('active');
     });
-  </script>
+  }
+
+  // Carousel functionality for each news card
+  document.querySelectorAll('.news-carousel-card').forEach(function(card) {
+    const images = card.querySelectorAll('.carousel-image');
+    const thumbnails = card.querySelectorAll('.thumbnail');
+    const leftArrow = card.querySelector('.carousel-arrow.left');
+    const rightArrow = card.querySelector('.carousel-arrow.right');
+    let current = 0;
+
+    function updateCarousel(index) {
+      images.forEach((img, i) => {
+        img.classList.toggle('active', i === index);
+      });
+      thumbnails.forEach((thumb, i) => {
+        thumb.classList.toggle('active', i === index);
+      });
+      if (leftArrow && rightArrow) {
+        leftArrow.disabled = index === 0;
+        rightArrow.disabled = index === images.length - 1;
+      }
+    }
+
+    if (leftArrow && rightArrow) {
+      leftArrow.addEventListener('click', () => {
+        if (current > 0) {
+          current--;
+          updateCarousel(current);
+        }
+      });
+      rightArrow.addEventListener('click', () => {
+        if (current < images.length - 1) {
+          current++;
+          updateCarousel(current);
+        }
+      });
+    }
+
+    thumbnails.forEach((thumb, i) => {
+      thumb.addEventListener('click', () => {
+        current = i;
+        updateCarousel(current);
+      });
+    });
+
+    updateCarousel(current);
+  });
+});
+</script>
+
 </body>
 </html>
