@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Lab Researchers</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-red: #BA0C2F;      /* Bulldog Red */
+      --primary-black: #000000;    /* Arch Black */
+      --uga-gray: #F8FAFC;         /* Light gray background */
+      --bg-light: #FFFFFF;         
+      --text-dark: #000000;        /* Black text */
+      --text-light: #64748B;       /* Neutral gray for secondary text */
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    body {
+      background: var(--uga-gray);
+      color: var(--text-dark);
+      line-height: 1.6;
+      padding-top: 60px;
+    }
+    
+    /* Navbar Styles */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 1);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      width: 100%;
+    }
+
+    .nav-container {
+      width: 100%;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg-light);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 35px;
+    }
+
+    .nav-logo span {
+      font-weight: 600;
+      color: var(--primary-black);
+      font-size: 1.1rem;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      font-size: 2rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      z-index: 1100; 
+      position: relative;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.3rem;
+      list-style: none;
+      margin-left: auto;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: var(--text-dark);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition);
+      font-size: 0.9rem;
+    }
+    
+    .nav-links li a i {
+      font-size: 1.1rem;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      background-color: var(--primary-red); /* UGA Red */
+      color: var(--bg-light); /* White text */
+    }
+
+    .join-btn {
+      background: var(--primary-red);
+      color: var(--bg-light) !important;
+      padding: 0.5rem 1.25rem;
+      border-radius: 8px;
+      transition: var(--transition);
+    }
+
+    .join-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+    
+    /* Researcher Profile Layout */
+    .researcher-profile {
+      display: flex;
+      max-width: 1100px;
+      margin: 2.5rem auto;
+      background: #fff;
+      box-shadow: var(--shadow-lg);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .profile-info {
+      flex: 2;
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: #fff;
+    }
+    
+    .profile-info h2 {
+      margin-top: 0;
+      color: var(--primary-black);
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -1px;
+    }
+    
+    .bio-publications {
+      display: flex;
+      flex-direction: column;
+      gap: 2.2rem;
+      margin-top: 1.2rem;
+    }
+    
+    .bio h3, .publications h3, .projects h3 {
+      margin-bottom: 0.5rem;
+      color: var(--primary-black);
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+    
+    .bio p {
+      color: var(--text-light);
+      font-size: 1.05rem;
+    }
+    
+    .publications ul, .projects ul {
+      margin: 0;
+      padding-left: 1.2rem;
+      color: var(--text-dark);
+    }
+    
+    .publications li, .projects li {
+      margin-bottom: 0.5rem;
+      font-size: 1.02rem;
+    } 
+    
+    .profile-sidebar {
+      flex: 1;
+      background: #F1F5F9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2.5rem 1.5rem 2rem 1.5rem;
+      min-width: 270px;
+      border-left: 1px solid #e0e4ef;
+    }
+    
+    .profile-photo {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      /*border: 4px solid var(--primary-black);*/
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 8px rgba(186, 12, 47, 0.10);
+      background: #fff;
+    }
+    
+    .profile-details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      width: 100%;
+    }
+    
+    .profile-details h4 {
+      margin: 0.5rem 0 0.25rem 0;
+      color: var(--primary-black);
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-align: center;
+    }
+    
+    .profile-email, .profile-lab-link {
+      color: var(--primary-red);
+      text-decoration: none;
+      font-size: 1rem;
+      word-break: break-all;
+      transition: var(--transition);
+      display: block;
+      text-align: center;
+    }
+    
+    .profile-email:hover, .profile-lab-link:hover {
+      text-decoration: underline;
+      color: var(--primary-black);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 900px) {
+      .mobile-menu-btn {
+        display: block;
+        font-size: 1.5rem;
+      }
+
+      .researcher-profile {
+        flex-direction: column-reverse;
+        max-width: 98vw;
+      }      
+      
+      .profile-sidebar {
+        border-left: none;
+        border-top: 1px solid #e0e4ef;
+        width: 100%;
+        min-width: 0;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 2rem;
+        padding: 2rem 1rem;
+      }
+      
+      .profile-details {
+        align-items: flex-start;
+      }
+
+      .nav-links.active{
+        display: flex;
+      }
+
+      .nav-container{
+        padding: 1rem 1rem;
+      }
+
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        /*padding: 1rem;*/
+      }
+      
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        background: var(--bg-light);
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem 0;
+        z-index: 1000;
+        box-shadow: var(--shadow);
+      }
+  
+    }
+    
+    @media (max-width: 600px) {
+      .researcher-profile {
+        padding: 0;
+      }
+
+      .profile-info, .profile-sidebar {
+        padding: 1.2rem;
+      }
+      
+      .profile-photo {
+        width: 90px;
+        height: 90px;
+      }
+    }
+    </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+        <a href="../index.html" class="nav-logo">
+            <img src="../assets/FMLL_logo.png" alt="Future Mobility Living Lab">
+            <span>Future Mobility Living Lab</span>
+        </a>
+
+        <button class="mobile-menu-btn" aria-label="Toggle Menu">
+            <i class="bx bx-menu"></i>
+        </button>
+
+        <ul class="nav-links">
+            <li><a href="../index.html"><i class='bx bx-home'></i>Home</a></li>
+            <!--<li><a href="research.html"><i class='bx bx-search'></i>Research</a></li>-->
+            <li><a href="advisory-board.html"><i class='bx bx-user-voice'></i>Advisory Board</a></li>
+            <li><a href="team.html"><i class='bx bx-group'></i>Team</a></li>
+            <li><a href="news.html"><i class='bx bx-news'></i>News</a></li>
+            <li><a href="contact.html" class="join-btn"><i class='bx bx-envelope'></i>Contact Us</a></li>
+        </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="researcher-profile">
+    <div class="profile-info">
+      <h2>Dr. Sung-Hee Kim</h2>
+      <div class="bio-publications">
+        <section class="bio">
+          <h3>Bio</h3>
+          <p>
+            Dr. Sung-Hee (Sonny) Kim is a professor and Associate Chair of Civil Engineering at the University of Georgia. He specializes in resilient infrastructure and pavements, pursuing teaching and research to advance sustainable, resilient infrastructure management systems using nondestructive testing, remote sensing, and machine learning algorithms. Over the past decade, Dr. Kim has been awarded over $10 million in research grants and has published more than 150 refereed journal articles, proceedings, and technical reports. His honors include ASCE Fellow, Distinguished Faculty Fellow by UGA College of Engineering, 2021 ASCE Civil Engineer of the Year, and 2021 Georgia Engineer of the Year by the Georgia Society of Professional Engineers.
+          </p>
+        </section>
+        <section class="projects">
+            <h3>Projects</h3>
+            <ul>
+              <li>09/24–02/26: Focused Regional Resilience Study for Fort Stewart / Hunter Army Airfield (US Department of Defense).</li>
+              <li>09/23–03/25: Coastal Flood Roadway Vulnerability Assessment (GDOT/FHWA).</li>
+              <li>08/23–07/26: UTC Tier 1 Accelerated Bridge Construction (U.S. DOT).</li>
+              <li>07/23–12/25: Measurement of cement content and layer thickness using ground penetrating radar (GDOT/FHWA).</li>
+              <li>07/23–06/26: Investigation of vehicle weights impact on pavements and bridges (GDOT/FHWA).</li>
+              <li>08/21–05/22: Envisioning P2P Technology for Rural Infrastructure Management (UGA Office of Provost/PSO).</li>
+            </ul>
+          </section>
+        <section class="publications">
+          <h3>Publications</h3>
+          <ul>
+            <li>Mahyar Shahri and S. Sonny Kim, Application of Optical Satellite data in Pavement management: Assessing its Value in Partially Observable Stochastic Environments, Journal of Performance of Constructed Facilities (Accepted).</li>
+            <li>Oravbiere, O., Chorzepa, M., Kim, S., Enhancing dynamic performance of UHPC bridge girder sections, Structures, 70 (2025) 109569, Elsevier.</li>
+            <li>Zack Hall and S. Sonny Kim, Utilizing Dielectric Constant and Electrical Conductivity to Estimate Cement Content in Stabilized Subgrade Soils, Transportation Geotechnics, Elsevier, 2025.</li>
+            <li>Ahmad Abdelmawla, Jidong J. Yang, S. Sonny Kim, Field Validation of Deep-Learning-Based Ground Penetrating Radar Image Analysis for Advancing Subsurface Distress Detection, Transportation Research Record, 2024.</li>
+            <li>Shihan Ma et al., Composite Deep Learning Architecture for Vehicle Classification Using Vision Transformers and Wheel Position Features, SN Computer Science, 2024.</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+    <aside class="profile-sidebar">
+      <img src="../assets/DrSungHeeKim.jpg" alt="Dr. Sung-Hee Kim" class="profile-photo">
+      <div class="profile-details">
+        <h4>Dr. Sung-Hee Kim</h4>
+        <a href="mailto:kims@uga.edu" class="profile-email">kims@uga.edu</a>
+        <a href="https://kims.engr.uga.edu" class="profile-lab-link" target="_blank">https://kims.engr.uga.edu</a>
+      </div>
+    </aside>
+  </main>
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    if (menuBtn && navLinks) {
+      menuBtn.addEventListener('click', function () {
+        navLinks.classList.toggle('active');
+      });
+    }
+});
+</script>
+</body>
+</html>
